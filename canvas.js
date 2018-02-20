@@ -1,7 +1,8 @@
 var latestPoint = [];
 var c;
 var ctx;
-var mode=null;
+var mode = null;
+var draw = false;
 
 function setUp(){
 	c = document.getElementById("myc");
@@ -15,15 +16,17 @@ function displayCoords(event){
 	document.getElementById("test").innerHTML = "Coords: " + (event.clientX - rect.left)
 	+ " " + (event.clientY - rect.top );
 	
-	if ( mode == "freedraw" ) {
+	if ( draw ) {
 		putCoords(event);
 	}
 }
 
 function putCoords(event) {
 	var rect = c.getBoundingClientRect();
-	if ( event.type == "click" || mode == "free" )
+	if ( ( event.type == "click" && mode != "freedraw" ) || draw)
 		latestPoint.push([event.clientX - rect.left, event.clientY - rect.top]);
+	else if ( event.type == "mousedown" && mode == "freedraw" )
+		draw = true;
 	switch(mode) {
 		case "line":
 			Line();
@@ -48,8 +51,14 @@ function Line() {
 		ctx.moveTo(latestPoint[0][0], latestPoint[0][1]);
 		ctx.lineTo(latestPoint[1][0], latestPoint[1][1]);
 		ctx.stroke();
-		mode = "";
 		latestPoint = [];
+	}
+}
+
+function turnOff() {
+	if ( mode == "freedraw" ) {
+		latestPoint = [];
+		draw = false;
 	}
 }
 
@@ -63,24 +72,23 @@ function Circle() {
 		+ Math.pow( latestPoint[0][1] - latestPoint[1][1] ,2 ) );
 		ctx.arc( latestPoint[0][0], latestPoint[0][1], radius, 0, 2*Math.PI, true);
 		ctx.stroke();
-		mode = "";
 		latestPoint = [];
 	}
 }
 function FreeDraw() {
   ctx.lineJoin = "round";
-	if ( mode != "free" ){
-		mode = "free";
-		latestPoint = [];
-	} else {
+	if ( mode != "freedraw" ){
+		mode = "freedraw";
+	} else if (draw) {
 		if ( latestPoint.length == 1 ){
 			ctx.beginPath();
 			ctx.moveTo(latestPoint[0][0], latestPoint[0][1]);
 		}
 		//draw line from each point in array to next point in array
 		for ( var i = 1; i < latestPoint.length; i++ ){
+			ctx.moveTo(latestPoint[i-1][0],latestPoint[i-1][1]);
 			ctx.lineTo(latestPoint[i][0], latestPoint[i][1]);
+			ctx.stroke();
 		}
-		ctx.stroke();
 	}
 }
