@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>Draw Online</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="canvas.css" type="text/css"/>
+		<script src="canvas.js"></script>
+		
+	</head>
+	<body>
+			<div id="buttonbar">
+				<button id="line" onclick="Line()">Line</button>
+				<button id="circle" onclick="Circle()">Circle</button>
+				<button id="freedraw" onclick="FreeDraw()">Free Draw</button>
+			</div>
+			<br>
+			<br>
+			<canvas id="myc" width="1200" height="300"
+				onmousemove="displayCoords(event)"
+				onmousedown="putCoords(event)"
+				onclick="putCoords(event)">
+			</canvas>
+			<script>setUp();</script>
+			<p id="test"></p>
+	</body>
+</html>
