@@ -13,7 +13,18 @@ body {
 }
 
 #myc {
+	z-index:0;
 	border: 1px solid red;
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#myc2 {
+	z-index:1;
+	position: relative;
+	bottom: 80%;
+	border: 1px solid blue;
 	display:block;
 	margin-left: auto;
 	margin-right: auto;
