@@ -1,4 +1,5 @@
 var latestPoint = [];
+var drawing = [];
 var c;
 var ctx;
 var c2;
@@ -9,13 +10,12 @@ var draw = false;
 function setUp(){
 	c = document.getElementById("myc");
 	ctx = c.getContext("2d");
-		ctx.canvas.width = window.innerWidth * .8;
+	ctx.canvas.width = window.innerWidth * .8;
 	ctx.canvas.height = window.innerHeight * .8;
 	c2 = document.getElementById("myc2");
 	ctx2 = c2.getContext("2d");
 	ctx2.canvas.width = window.innerWidth * .8;
 	ctx2.canvas.height = window.innerHeight * .8;
-
 }
 
 function displayCoords(event){
@@ -30,7 +30,7 @@ function displayCoords(event){
 
 function putCoords(event) {
 	var rect = c.getBoundingClientRect();
-	if ( draw && event.type == "mousemove" )
+	if ( draw )
 		latestPoint.push([event.clientX - rect.left, event.clientY - rect.top]);
 	else if ( event.type == "mousedown" )
 		draw = true;

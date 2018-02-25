@@ -12,6 +12,10 @@ body {
   left: 0;
 }
 
+#canvasTwin {
+	position: relative;
+}
+
 #myc {
 	z-index:0;
 	border: 1px solid red;
@@ -22,12 +26,12 @@ body {
 
 #myc2 {
 	z-index:1;
-	position: relative;
-	bottom: 80%;
+	position: absolute;
 	border: 1px solid blue;
-	display:block;
-	margin-left: auto;
-	margin-right: auto;
+	left: 0;
+	top: 0;
+	right: 0;
+	margin: auto
 }
 
 button {
