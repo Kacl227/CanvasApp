@@ -4,29 +4,31 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="canvas.css" type="text/css"/>
 		<script src="canvas.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Reenie+Beanie" rel="stylesheet">
 		
 	</head>
 	<body>
-			<div id="buttonbar">
-				<button id="line" onclick="Line()">Line</button>
-				<button id="circle" onclick="Circle()">Circle</button>
-				<button id="freedraw" onclick="FreeDraw()">Free Draw</button>
+		<div id = "toolbar">
+			<div id="choices">
+				<button id="line" onclick="line()">Line</button>
+				<button id="circle" onclick="circle()">Circle</button>
+				<button id="freedraw" onclick="freeDraw()">Free Draw</button>
 			</div>
-			<br>
-			<br>
-			<div id = "canvasTwin">
-			<canvas id="myc" width="1200" height="300"
-				onmousemove="displayCoords(event)"
-				onmouseup="turnOff()"
-				onmousedown="putCoords(event)">
-			</canvas>
-			<canvas id="myc2" width="1200" height="300"
-				onmousemove="displayCoords(event)"
-				onmouseup="turnOff()"
-				onmousedown="putCoords(event)">
-			</canvas>
+			<div id="colorbar">
+				<div id="red" class="color" onclick="setColor('red')"></div>
+				<div id="blue" class="color" onclick="setColor('blue')"></div>
+				<div id="green" class="color" onclick="setColor('green')"></div>
+				<div id="yellow" class="color" onclick="setColor('yellow')"></div>
+				<div id="purple" class="color" onclick="setColor('violet')"></div>
 			</div>
-			<script>setUp();</script>
-			<p id="test"></p>
+		</div>
+		<h2>Underpowered Point</h2>
+		<canvas id="myc" width="1200" height="300"
+			onmousemove="displayCoords(event)"
+			onmouseup="turnOff()"
+			onmousedown="putCoords(event)">
+		</canvas>
+		<script>setUp();</script>
+		<p id="test"></p>
 	</body>
 </html>

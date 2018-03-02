@@ -1,50 +1,68 @@
 body {
-	margin: 0;
-}
-
-#content
-{
-  position: absolute;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-#canvasTwin {
-	position: relative;
+	margin: 15px;
 }
 
 #myc {
-	z-index:0;
-	border: 1px solid red;
+	outline: 10px outset red;
 	display:block;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-#myc2 {
-	z-index:1;
-	position: absolute;
-	border: 1px solid blue;
-	left: 0;
-	top: 0;
-	right: 0;
-	margin: auto
+#toolbar {
+	padding-bottom: 10px;
 }
 
 button {
 	height:22px;
-	margin: 0;
 	float: left;
 	font-weight: bold;
 }
 
-#buttonbar {
-	padding-top: 15px;
-}
-
 p {
 	font-size: 25px;
+}
+
+h2 {
+	left: 160;
+	top: 0;
+	font-size: 50px;
+	position: absolute;
+	font-family: 'Reenie Beanie';
+}
+
+#colorbar {
+	border-style: groove;
+	display: block;
+	width: 50px;
+	clear: both;
+	overflow: auto;
+}
+
+
+.color {
+	width: 10px;
+	height: 10px;
+	border: 1px;
+	float: left;
+}
+
+#red {
+	background: red;
+}
+
+#green {
+	background: green;
+}
+
+#blue {
+	background: blue;
+}
+
+#yellow {
+	background: yellow;
+}
+
+#purple {
+	background: violet;
 }
