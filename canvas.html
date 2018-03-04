@@ -10,9 +10,9 @@
 	<body>
 		<div id = "toolbar">
 			<div id="choices">
-				<button id="line" onclick="line()">Line</button>
-				<button id="circle" onclick="circle()">Circle</button>
-				<button id="freedraw" onclick="freeDraw()">Free Draw</button>
+				<button id="line" onclick="setMode('line')">Line</button>
+				<button id="circle" onclick="setMode('circle')">Circle</button>
+				<button id="freedraw" onclick="setMode('freeDraw')">Free Draw</button>
 			</div>
 			<div id="colorbar">
 				<div id="red" class="color" onclick="setColor('red')"></div>
